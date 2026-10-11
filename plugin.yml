@@ -1,0 +1,12 @@
+name: OwnerGuard
+version: ${project.version}
+main: com.example.ownerguard.OwnerGuard
+api-version: "1.20"
+description: Protected players can only be deopped or banned with the console-only /happy command.
+commands:
+  happy:
+    description: Console-only. Deop and/or ban a protected player.
+    usage: /happy <player> [deop|ban|both|restore] [reason]
+  ownerguard:
+    description: Console-only. Reload OwnerGuard or list protected players.
+    usage: /ownerguard <reload|list>

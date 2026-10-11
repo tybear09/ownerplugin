@@ -1,0 +1,42 @@
+# OwnerGuard configuration
+
+# Players who cannot be deopped or banned by normal commands (from anyone, console included).
+# The ONLY way to deop/ban them is the console-only command:  /happy <player>
+# Use your Minecraft name, or a UUID (UUIDs are safer if you change names).
+# Example:
+#   protected-players:
+#     - YourNameHere
+#     - 069a79f4-44e9-4726-a5be-fca90e38aaf5
+protected-players:
+  - YourNameHere
+
+# Commands that are blocked when they target a protected player.
+# Namespaced forms (minecraft:deop, bukkit:ban) and /execute ... run ... are handled automatically.
+# Add "kick" here if you also want to stop ops from kicking the owner.
+blocked-commands:
+  - deop
+  - ban
+  - tempban
+  - ipban
+
+# Commands that take an IP address. Blocked if the IP matches a protected player who is online.
+ip-ban-commands:
+  - ban-ip
+  - banip
+  - tempbanip
+  - ipban
+
+# Block things like "/deop @a" or "/ban @e", since a selector could include the protected player.
+block-selectors: true
+
+# Backup layer: if a protected player gets banned or deopped some other way
+# (another plugin, etc.), pardon / re-op them automatically.
+# Self-heal pauses for a player after you use /happy on them (until /happy <player> restore).
+self-heal: true
+keep-op: true
+self-heal-interval-seconds: 5
+
+# Tell protected players who is trying to do something to them.
+alert-protected-player: true
+
+deny-message: "&cThat player is protected."
